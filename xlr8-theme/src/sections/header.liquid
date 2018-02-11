@@ -1,0 +1,104 @@
+<header role="banner" class="site-header container">
+  <h1 class="header-logo">
+    <a href="/">
+      {% include 'xlr8-logo' %}
+    </a>
+  </h1>
+
+  <nav role="navigation">
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+          {% include "icon-hamburger" %}
+        </a>
+        <div id="js-navigation-menu" class="navigation-menu show">
+    {% if shop.customer_accounts_enabled %}
+      <ul>
+        {% if customer %}
+          <li>
+            {% if customer.first_name != blank %}
+              {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
+              {{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}
+            {% else %}
+              <a href="/account">{{ 'layout.customer.account' | t }}</a>
+            {% endif %}
+          </li>
+          <li>
+            {{ 'layout.customer.log_out' | t | customer_logout_link }}
+          </li>
+        {% else %}
+          <li>
+            {{ 'layout.customer.log_in' | t | customer_login_link }}
+          </li>
+          <li>
+            {{ 'layout.customer.create_account' | t | customer_register_link }}
+          </li>
+        {% endif %}
+      </ul>
+    {% endif %}
+
+    <div class="nav-secondary__container">
+      <ul class="social-nav">
+        <li>
+          <a href="https://www.instagram.com/">
+            {% include 'icon-instagram' %}
+          </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com//">
+            {% include 'icon-facebook' %}
+          </a>
+        </li>
+        <li>
+          <a href="https://yelp.com/">
+            {% include 'icon-pinterest' %}
+          </a>
+        </li>
+        <li>
+          <a href="https://pintrest.com/">
+            {% include 'icon-yelp' %}
+          </a>
+        </li>
+      </ul>
+
+      <ul class="nav-secondary">
+        {% for link in linklists.secondary-menu.links %}
+          <li>
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+        {% endfor %}
+
+        <!-- <li>
+          <form action="/search" method="get" role="search">
+            <label for="Search" class="label-hidden">
+              {{ 'general.search.placeholder' | t }}
+            </label>
+            <input type="search"
+            name="q"
+            id="Search"
+            value="{{ search.terms | escape }}"
+            placeholder="{{ 'general.search.placeholder' | t }}">
+            <button type="submit" class="btn">
+              {% include 'icon-search' %}
+              <span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span>
+            </button>
+          </form>
+        </li> -->
+
+        <li>
+          <a href="/cart">
+            {% include 'icon-cart' %}
+            ({{ cart.item_count }} {{ 'layout.cart.items_count' | t: count: cart.item_count }})
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <ul class="nav-primary">
+      {% for link in linklists.main-menu.links %}
+          <li {% if link.active %}class="site-nav--active"{% endif %}>
+            <a href="{{ link.url }}" class="site-nav__link">{{ link.title }}</a>
+          </li>
+      {% endfor %}
+    </ul>
+  </div>
+  </nav>
+</header>

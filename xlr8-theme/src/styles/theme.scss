@@ -1,0 +1,50 @@
+@charset "UTF-8";
+/*============================================================================
+  XLR8 | Built with Slate
+    - You cannot use native CSS/Sass @imports in this file without a build script
+==============================================================================*/
+
+/*================ UTILS ================*/
+@import url("tools/mixins.scss");
+
+/*================ SETTINGS ================*/
+@import url("settings/variables.scss.liquid");
+
+/*================ COMMON ================*/
+@import url("global/normalize.scss");
+@import url("global/slate-reset.scss");
+@import url("global/helper-classes.scss");
+@import url("global/typography.scss");
+@import url("global/grid.scss");
+@import url("global/layout.scss");
+@import url("global/icons.scss");
+@import url("global/rte.scss");
+@import url("global/responsive-tables.scss");
+@import url("global/links-buttons.scss");
+@import url("global/forms.scss");
+@import url("global/blank-states.scss");
+@import url("global/fonts.scss");
+@import url("global/lists.scss");
+
+/*================ MODULES ================*/
+@import url("modules/content-block.scss");
+@import url("modules/gift-card-template.scss");
+@import url("modules/inverse-content-block.scss");
+@import url("modules/wood-grain.scss");
+@import url("modules/contact-form.scss");
+
+/*================ Layout ================*/
+@import url("layout/header.scss");
+@import url("layout/footer.scss");
+@import url("layout/collection.scss");
+@import url("layout/about.scss");
+@import url("layout/product.scss");
+@import url("layout/insta-feed.scss");
+@import url("layout/cart.scss");
+
+// Home
+@import url("layout/home/hero.scss");
+@import url("layout/home/screenprinting.scss");
+@import url("layout/home/homegoods.scss");
+@import url("layout/home/fashion.scss");
+@import url("layout/home/locations.scss");

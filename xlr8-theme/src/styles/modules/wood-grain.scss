@@ -1,0 +1,6 @@
+.wood-grain {
+  background-color: $teal;
+  background-image: url("{{ 'wood-background.png' | asset_url }}");
+  padding: $spacing-large 0;
+  position: relative;
+}

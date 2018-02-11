@@ -1,0 +1,35 @@
+.homegoods {
+  overflow: hidden;
+
+  @media screen and (max-width: 879px) {
+    max-width: 550px;
+    margin-bottom: $spacing-large;
+  }
+
+  @media screen and (min-width: 880px) {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 60vh;
+  }
+
+  .content-block {
+    padding: $spacing-base;
+
+    @media screen and (max-width: 879px) {
+      margin: 0 auto;
+    }
+
+    @media screen and (min-width: 880px) {
+      margin-top: 9rem;
+    }
+  }
+}
+
+.homegoods__image {
+  margin-right: -$spacing-large;
+
+  @media screen and (max-width: 879px) {
+    margin-top: 1rem;
+  }
+}

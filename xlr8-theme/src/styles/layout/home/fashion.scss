@@ -1,0 +1,42 @@
+.fashion {
+  background-color: $gold;
+  background-image: url("{{ 'fashion.jpg' | asset_url }}");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .container {
+    display: flex;
+    min-height: 60vh;
+    align-items: flex-end;
+
+    @media screen and (max-width: 940px) {
+      justify-content: center;
+    }
+  }
+
+  .content-block {
+    margin: $spacing-base $spacing-base 0;
+
+    @media screen and (min-width: 940px) {
+      margin: $spacing-large $spacing-large 0;
+    }
+
+    &:before {
+      top: -$spacing-base;
+      right: -$spacing-base;
+      left: -$spacing-base;
+      bottom: 0;
+      position: absolute;
+      z-index: 0;
+      content: "";
+      background-image: url("{{ 'zigzag-pattern.png' | asset_url }}");
+      display: block;
+
+      @media screen and (min-width: 940px) {
+        top: -$spacing-large;
+        right: -$spacing-large;
+        left: -$spacing-large;
+      }
+    }
+  }
+}

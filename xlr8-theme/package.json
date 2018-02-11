@@ -1,0 +1,8 @@
+{
+  "name": "xlr8-theme",
+  "version": "0.0.1",
+  "devDependencies": {
+    "@shopify/slate-tools": "0.13.0",
+    "gulp-shopify-sass": "^0.4.1"
+  }
+}

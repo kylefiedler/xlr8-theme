@@ -1,0 +1,32 @@
+.our-family,
+.locations {
+  max-width: 1050px;
+  padding-top: $spacing-large;
+}
+
+.our-family__list,
+.locations__list {
+  @media screen and (min-width: 580px) {
+    display: flex;
+  }
+
+  li {
+    padding: $spacing-small;
+
+    @media screen and (min-width: 580px) {
+      width: 50%;
+    }
+  }
+
+  iframe {
+    width: 100%;
+  }
+}
+
+.location__details {
+  padding: $spacing-base;
+
+  h4 {
+    margin-bottom: $spacing-small;
+  }
+}

@@ -1,0 +1,98 @@
+.hero {
+  background-color: $gold;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &.home-hero {
+    background-image: url("{{ 'hero.png' | asset_url }}");
+
+    .container {
+      min-height: 60vh;
+    }
+  }
+
+  &.about-hero {
+    background-image: url("{{ 'about-hero.jpg' | asset_url }}");
+
+    .container {
+      min-height: 30vh;
+      justify-content: flex-start;
+    }
+
+    .content-block__inner {
+      padding-bottom: 0;
+    }
+  }
+
+  &.locations-hero {
+    background-image: url("{{ 'locations-hero.jpg' | asset_url }}");
+    justify-content: flex-start;
+
+    .container {
+      min-height: 30vh;
+    }
+
+    .content-block__inner {
+      padding-bottom: 0;
+    }
+  }
+
+  &.collection-hero {
+    background-color: $gold;
+
+    .container {
+      min-height: 400px;
+      justify-content: flex-start;
+    }
+
+    .content-block__inner {
+      padding-bottom: 1px;
+      margin-bottom: 0;
+    }
+  }
+
+  .container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  .content-block {
+    margin: 0;
+
+    @media screen and (min-width: 800px) {
+      width: 80%;
+    }
+
+    @media screen and (min-width: 1000px) {
+      width: 60%;
+    }
+
+    &:before {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+      opacity: 0.15;
+      z-index: 0;
+      content: "";
+      background-image: url("{{ 'hexagonal-pattern.png' | asset_url }}");
+      display: block;
+    }
+  }
+
+  .content-block__inner {
+    margin-bottom: -$spacing-large;
+    margin-right: $spacing-base;
+    margin-left: $spacing-base;
+    margin-top: $spacing-base;
+
+    @media screen and (min-width: 1000px) {
+      margin-bottom: -$spacing-large;
+      margin-right: $spacing-large;
+      margin-left: $spacing-large;
+      margin-top: $spacing-large;
+    }
+  }
+}

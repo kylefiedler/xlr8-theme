@@ -1,0 +1,147 @@
+<footer class="site-footer">
+  <nav class="top-level container">
+    {%- assign footer_linklist = section.settings.footer_linklist -%}
+    {% if linklists[footer_linklist].links.size > 0 %}
+      <ul class=top-level__list>
+        {% for link in linklists[footer_linklist].links %}
+          <li>
+            <h4><a href="{{ link.url }}">{{ link.title }}</h4></a>
+
+            {% if link.links != blank %}
+            <ul class="child">
+              {% for child_link in link.links %}
+                <li {% if child_link.active %}class="active {% if child_link.child_active %}child-active{% endif %}"{% endif %}><a href= "{{ child_link.url }}">{{ child_link.title }}</a>
+              </li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+        <li>
+          <ul class="social-footer">
+            <li>
+              <a href="https://www.instagram.com/">
+                {% include 'icon-instagram' %}
+              </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com//">
+                {% include 'icon-facebook' %}
+              </a>
+            </li>
+            <li>
+              <a href="https://yelp.com/">
+                {% include 'icon-pinterest' %}
+              </a>
+            </li>
+            <li>
+              <a href="https://pintrest.com/">
+                {% include 'icon-yelp' %}
+              </a>
+            </li>
+          </ul>
+
+          <ul>
+            {% for link in linklists.secondary-menu.links %}
+              <li>
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </li>
+      </ul>
+    {% endif %}
+  </nav>
+
+  <nav class="bottom-level container">
+    <ul class="bottom-level__list">
+      <li>
+        <h1 class="logo">
+          <a href="/">
+            {% include 'xlr8-logo' %}
+          </a>
+        </h1>
+      </li>
+      <li>
+        <h4>Burnet</h4>
+        <p>1002 N Water St,  Burnet, TX 78611</p>
+        <p>(512)756-0930</p>
+        <p>{{ 'layout.footer.copyright' | t }} &copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}</p>
+      </li>
+      <li>
+        <h4>Marble Falls</h4>
+        <p>1002 N Water St,  Burnet, TX 78611</p>
+        <p>(512)756-0930</p>
+      </li>
+      <li class="news">
+        <h4>News &amp; Special Offers</h4>
+        <input type="email" name="" value="">
+        <input class="button" type="submit" value="Sign up!" />
+      </li>
+    </ul>
+  </nav>
+
+  {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
+  <ul>
+    {% for social in social_accounts %}
+      {%- assign social_handle = social | handleize -%}
+      {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+      {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
+
+      {% if settings[social_link] != blank %}
+        <li>
+          <a href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+            {% include social_icon %}
+            <span class="icon-fallback-text">{{ social }}</span>
+          </a>
+        </li>
+      {% endif %}
+
+    {% endfor %}
+  </ul>
+
+  {% if section.settings.show_payment_icons %}
+    {% unless shop.enabled_payment_types == empty %}
+      {%- assign payment_icons_available = 'amazon_payments,american_express,apple_pay,bitcoin,cirrus,dankort,diners_club,discover,dogecoin,dwolla,forbrugsforeningen,interac,jcb,litecoin,maestro,master,paypal,visa' | split: ',' -%}
+
+      <span class="visually-hidden">{{ 'layout.footer.payment_methods' | t }}</span>
+      <ul class="payment-icons">
+        {% for type in shop.enabled_payment_types %}
+          {% if payment_icons_available contains type %}
+            <li>
+              {%- assign icon_name = type | prepend: 'icon-' -%}
+              {% include icon_name %}
+              <span class="visually-hidden">{{ type | capitalize | replace: '_', ' ' }}</span>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endunless %}
+  {% endif %}
+
+
+  <div>
+    <small></small>
+  </div>
+</footer>
+
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "footer_linklist",
+        "label": "First menu",
+        "default": "footer"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_payment_icons",
+        "label": "Show payment icons",
+        "default": false
+      }
+    ]
+  }
+
+{% endschema %}

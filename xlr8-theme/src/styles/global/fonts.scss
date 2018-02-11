@@ -1,0 +1,7 @@
+@font-face {
+  font-family: "King Basil";
+  src: url("{{ 'king_basil_lite-webfont.woff2' | asset_url }}") format("woff2"),
+    url("{{ 'king_basil_lite-webfont.woff' | asset_url }}") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}

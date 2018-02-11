@@ -1,0 +1,110 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff;
+  background-repeat: repeat-x;
+  background-position: center 200px;
+  color: $color-body-text;
+  font-family: $font-stack-body;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+
+  @media screen and (min-width: 600px) {
+    background-position: center 250px;
+  }
+
+  @media screen and (min-width: 600px) {
+    background-position: center 180px;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+  color: $dark-teal;
+  margin: 0 0 0.5rem;
+  text-rendering: optimizeLegibility; // Fix the character spacing for headings
+}
+
+h1 {
+  font-size: 42px;
+  line-height: 1.1;
+  margin-bottom: $spacing-base;
+  font-family: $font-stack-header;
+
+  @media screen and (min-width: 800px) {
+    font-size: 78px;
+  }
+}
+
+h2 {
+  font-size: 28px;
+  font-family: $font-stack-header;
+
+  @media screen and (min-width: 800px) {
+    font-size: 36px;
+  }
+}
+
+h3 {
+  font-family: $font-stack-sub-header;
+  font-size: 22px;
+  color: $teal;
+  line-height: 1.2;
+
+  @media screen and (min-width: 800px) {
+    font-size: 28px;
+  }
+}
+
+h4 {
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: $spacing-small;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+h5 {
+  margin-bottom: 0;
+  font-size: 18px;
+  color: $teal;
+  font-family: $font-stack-sub-header;
+}
+
+p {
+  margin: 0 0 ($spacing-base / 2);
+}
+
+a {
+  color: inherit;
+
+  &:active,
+  &:focus,
+  &:hover {
+  }
+}
+
+img {
+  margin: 0;
+  max-width: 100%;
+}
+
+blockquote {
+  margin: $spacing-large 0 1em;
+  font-family: $font-stack-header;
+  font-size: 20px;
+  padding-top: $spacing-base;
+}
+
+cite {
+  font-size: $font-size-base;
+  font-style: italic;
+}

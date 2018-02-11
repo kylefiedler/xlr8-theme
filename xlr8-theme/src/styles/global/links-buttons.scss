@@ -1,0 +1,23 @@
+/*================ Links & Buttons ================*/
+input[type="submit"],
+button,
+.btn {
+  @include prefix("user-select", "none", moz ms webkit spec);
+  @include prefix(appearance, none, webkit moz spec);
+  background-color: $gold;
+  border-radius: $border-radius;
+  border: 0;
+  color: #fff;
+  display: inline-block;
+  font-family: $font-stack-sub-header;
+  font-size: 18px;
+  letter-spacing: 1px;
+  line-height: 1;
+  padding: $spacing-small;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: auto;
+}

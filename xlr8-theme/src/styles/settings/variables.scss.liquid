@@ -1,0 +1,107 @@
+/*================ Color Variables ================*/
+$dark-gray: #252525;
+$medium-gray: #777;
+
+$light-gray: #ccc;
+$light-red: #fbe3e4;
+$light-yellow: #fff6bf;
+$light-green: #e6efc2;
+
+$gold: #deb978;
+$teal: #61c4b8;
+$dark-teal: #0c3744;
+$text-color: #68676f;
+
+$color-primary: $teal;
+
+// Text colors
+$color-body-text: $text-color;
+
+// Backgrounds
+$color-body: #fff;
+
+// Border colors
+$color-border: $light-gray;
+
+// Helper colors for form error states
+$color-disabled: #000;
+$color-disabled-border: #000;
+$color-error: #000;
+$color-error-bg: $light-red;
+$color-success: #000;
+$color-success-bg: $light-green;
+
+/*================ Typography Variables ================*/
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+$font-stack-header: "King Basil", "schoolbook-condensed", 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-weight-header: $font-weight-bold;
+$line-height-header: 1.25;
+
+$font-stack-sub-header: "schoolbook-condensed", 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+$font-stack-body: "lato", Georgia;
+$font-size-base: 15px;
+$line-height-base: 1.7;
+
+/*============================================================================
+  Grid Breakpoints and Class Names
+    - Do not change the variable names
+==============================================================================*/
+$grid-medium: 750px;
+$grid-large: 990px;
+$grid-widescreen: 1200px;
+$grid-gutter: 30px;
+
+$small: 'small';
+$medium: 'medium';
+$medium-down: 'medium-down';
+$medium-up: 'medium-up';
+$large: 'large';
+$large-down: 'large-down';
+$large-up: 'large-up';
+$widescreen: 'widescreen';
+
+// The `$breakpoints` list is used to build our media queries.
+// You can use these in the media-query mixin.
+$breakpoints: (
+  $small '(max-width: #{$grid-medium - 1})',
+  $medium '(min-width: #{$grid-medium}) and (max-width: #{$grid-large - 1})',
+  $medium-down '(max-width: #{$grid-large - 1})',
+  $medium-up '(min-width: #{$grid-medium})',
+  $large '(min-width: #{$grid-large}) and (max-width: #{$grid-widescreen - 1})',
+  $large-down '(max-width: #{$grid-widescreen - 1})',
+  $large-up '(min-width: #{$grid-large})',
+  $widescreen '(min-width: #{$grid-widescreen})'
+);
+
+/*============================================================================
+  Generate breakpoint-specific column widths and push classes
+    - Default column widths: $breakpoint-has-widths: ($small, $medium-up);
+    - Default is no push classes
+    - Will not work if `styles/global/grid.scss` is removed
+==============================================================================*/
+$breakpoint-has-widths: ($small, $medium-up);
+$breakpoint-has-push: ();
+
+/*================ Sizing Variables ================*/
+$width-site: 1200px;
+$gutter: 30px;
+
+$spacing-base: $line-height-base * 1rem;
+$spacing-small: $spacing-base / 2;
+$spacing-x-small: $spacing-small / 2;
+$spacing-large: $spacing-base * 2;
+$spacing-x-large: $spacing-base * 3;
+$spacing-xx-large: $spacing-base * 4;
+
+$border-radius: 3px;
+$border: 1px solid $color-border;
+
+/*================ Z-Index ================*/
+$z-index-dropdown: 2;
+$z-index-skip-to-content: 10000; // really high to be safe of app markup
+
+/*================ SVG ================*/
+$svg-select-icon: #{'{{ "ico-select.svg" | asset_url }}'};

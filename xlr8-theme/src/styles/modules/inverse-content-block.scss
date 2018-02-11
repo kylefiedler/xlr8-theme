@@ -1,0 +1,30 @@
+.inverse-content-block {
+  background-color: $dark-teal;
+  padding: $spacing-base;
+  margin: $spacing-base;
+  position: relative;
+  z-index: 1;
+
+  @media screen and (min-width: 800px) {
+    padding: $spacing-large;
+    width: 50%;
+  }
+
+  &.full {
+    @media screen and (min-width: 800px) {
+      padding: $spacing-large;
+      width: 100%;
+    }
+  }
+
+  h4,
+  h2 {
+    color: white;
+  }
+
+  li,
+  p {
+    color: rgba(#fff, 0.7);
+    margin-bottom: $spacing-small;
+  }
+}

@@ -1,0 +1,41 @@
+.insta-feed {
+  text-align: center;
+
+  &:before {
+    display: block;
+    width: 35%;
+    margin: $spacing-large auto;
+    content: "";
+    background-color: $light-gray;
+    height: 2px;
+  }
+
+  h2 {
+    margin-bottom: $spacing-base;
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 $spacing-base;
+
+    @media screen and (max-width: 800px) {
+      flex-wrap: wrap;
+    }
+  }
+
+  li {
+    width: calc(25% - 12px);
+    content: "";
+    line-height: 1;
+
+    @media screen and (max-width: 800px) {
+      width: calc(50% - 0.85rem);
+      margin-bottom: $spacing-base;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}

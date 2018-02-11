@@ -1,0 +1,50 @@
+.collection-page {
+  padding: $spacing-large $spacing-small $spacing-small;
+
+  @media screen and (min-width: 450px) {
+    display: flex;
+  }
+}
+
+.product {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+
+  a {
+    text-decoration: none;
+  }
+
+  li {
+    padding-right: $spacing-base;
+    margin-bottom: $spacing-large;
+
+    @media screen and (min-width: 550px) {
+      width: 50%;
+    }
+
+    @media screen and (min-width: 945px) {
+      width: 33%;
+    }
+  }
+}
+
+.collection__sidebar {
+  padding-left: $spacing-base;
+
+  @media screen and (min-width: 450px) {
+    width: 570px;
+  }
+
+  @media screen and (min-width: 945px) {
+    width: 25%;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.child {
+  margin-bottom: $spacing-base;
+}
