@@ -6,31 +6,36 @@
     {% capture blog_title %}{{ blog.title | link_to: blog.url }} &mdash; {{ current_tags.first }}{% endcapture %}
   {% endif %}
 
-  <h1>{{ blog_title }}</h1>
+  <header role="banner" class="hero collection-hero">
+    <div class="container">
+      <section class="content-block">
+        <div class="content-block__inner">
+          <h1>{{ blog_title }}</h1>
+          {% if blog.all_tags.size > 0 %}
+          <h2>{{ 'blogs.general.categories' | t }}</h2>
 
-  {% if blog.all_tags.size > 0 %}
-    <h2>{{ 'blogs.general.categories' | t }}</h2>
-
-    <ul>
-      {% for tag in blog.all_tags %}
-
-        {% if current_tags contains tag %}
-          <li>{{ tag }}</li>
-        {% else %}
-          <li>{{ tag | link_to_tag: tag }}</li>
-        {% endif %}
-
-      {% endfor %}
-    </ul>
-  {% endif %}
-
+          <ul>
+            {% for tag in blog.all_tags %}
+              {% if current_tags contains tag %}
+                <li>{{ tag }}</li>
+              {% else %}
+                <li>{{ tag | link_to_tag: tag }}</li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+      </section>
+    </div>
+  </header>
 
   {% comment %}
 
   Article Previews
-  ====================
+====================
   {% endcomment %}
 
+<div class="container">
   {% for article in blog.articles %}
     <h3>
       <a href="{{ article.url }}">{{ article.title }}</a>
@@ -90,3 +95,4 @@
   {% endif %}
 
 {% endpaginate %}
+</div>
